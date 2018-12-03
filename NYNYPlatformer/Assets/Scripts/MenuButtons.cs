@@ -7,6 +7,7 @@ public class MenuButtons : MonoBehaviour
     
 {
     public string Map;
+    public string MenuMap;
     void Update()
     {
         // check to see if p key is pressed
@@ -30,6 +31,7 @@ public class MenuButtons : MonoBehaviour
 
     public void NewGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(Map);
     }
 
@@ -49,6 +51,10 @@ public class MenuButtons : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
 
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene(MenuMap);
     }
 
 }
