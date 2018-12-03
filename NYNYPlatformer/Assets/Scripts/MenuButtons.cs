@@ -8,6 +8,7 @@ public class MenuButtons : MonoBehaviour
 {
     public string Map;
     public string MenuMap;
+    public string Level;
     void Update()
     {
         // check to see if p key is pressed
@@ -31,8 +32,13 @@ public class MenuButtons : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("Health", 3);
         Time.timeScale = 1;
         SceneManager.LoadScene(Map);
+    }
+    public void SwitchLevel()
+    {
+        SceneManager.LoadScene(Level);
     }
 
     public void QuitGame()
