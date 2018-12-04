@@ -6,6 +6,9 @@ public class PowerCoffee : MonoBehaviour {
     public GameObject Player;
     public float timer;
     public Text PowerUpText;
+    public Slider PowerUpSlider;
+    bool timerStart = false;
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -13,21 +16,37 @@ public class PowerCoffee : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        PowerUpText.GetComponent<Text>().text = "Boost left:" + timer;
-        if (timer >= 20)
+        if (timerStart)
         {
-            Player.GetComponent<PlatformerMovement>().moveSpeed = 4;
-            Player.GetComponent<PlatformerMovement>().moveSpeed = 2;
+            timer -= Time.deltaTime;
+            PowerUpText.GetComponent<Text>().text = "Boost left:" + timer;
+            PowerUpSlider.GetComponent<Slider>().value = timer;
+            if (timer <= 0)
+            {
+                Player.GetComponent<PlatformerMovement>().moveSpeed = 4;
+                Player.GetComponent<PlatformerMovement>().jumpSpeed = 2;
+                timerStart = false;
+                timer = 20;
+               
+                PowerUpText.GetComponent<Text>().enabled = false;
+              
+            }
         }
+        
     }
      void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            timer += Time.deltaTime;
+           
+            PowerUpText.GetComponent<Text>().enabled = true;
+            timer = 20;
+            timerStart = true;
             Player.GetComponent<PlatformerMovement>().moveSpeed = 5;
-            Player.GetComponent<PlatformerMovement>().moveSpeed = 3;
-            Destroy(gameObject);
+            Debug.Log("Hi");
+            Player.GetComponent<PlatformerMovement>().jumpSpeed = 3;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
            
         }
     }
