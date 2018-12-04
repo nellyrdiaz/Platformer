@@ -16,6 +16,7 @@ public class PlayerHP : MonoBehaviour
 
     void Update()
     {
+        HP = PlayerPrefs.GetInt("Health");
         HPText.GetComponent<Text>().text = "Health " + HP;
         
     }
@@ -37,7 +38,7 @@ public class PlayerHP : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && HP >= 2 && yVelocity >=0)
         {
 
-            HP--;
+          //  HP--;
            
             PlayerPrefs.SetInt("Health", HP - 1);
 
