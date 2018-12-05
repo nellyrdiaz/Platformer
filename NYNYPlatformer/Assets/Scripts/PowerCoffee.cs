@@ -8,6 +8,7 @@ public class PowerCoffee : MonoBehaviour {
     public Text PowerUpText;
     public Slider PowerUpSlider;
     bool timerStart = false;
+    public GameObject PowerUpSliderApp;
     
 	// Use this for initialization
 	void Start () {
@@ -29,6 +30,7 @@ public class PowerCoffee : MonoBehaviour {
                 timer = 20;
                
                 PowerUpText.GetComponent<Text>().enabled = false;
+                PowerUpSliderApp.SetActive(false);
               
             }
         }
@@ -40,6 +42,7 @@ public class PowerCoffee : MonoBehaviour {
         {
            
             PowerUpText.GetComponent<Text>().enabled = true;
+            PowerUpSliderApp.SetActive(true);
             timer = 20;
             timerStart = true;
             Player.GetComponent<PlatformerMovement>().moveSpeed = 5;
