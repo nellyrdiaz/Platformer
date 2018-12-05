@@ -48,6 +48,15 @@ public class PlayerHP : MonoBehaviour
             
         
         }
+        if(collision.gameObject.tag == "Health" && HP <=4)
+        {
+            PlayerPrefs.SetInt("Health", HP + 1);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health" && HP >=5)
+        {
+            Destroy(collision.gameObject);
+        }
         // if less than 1 Health lose screen
        else if (collision.gameObject.tag == "Enemy" && HP <= 1 && yVelocity >= 0)
         {

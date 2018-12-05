@@ -17,6 +17,10 @@ public class MenuButtons : MonoBehaviour
     {
         //PlayerPrefs.SetInt("difficultyhealth", diffhealth);
         diffhealth = PlayerPrefs.GetInt("difficultyhealth");
+        if (diffhealth != 3)
+        {
+            PlayerPrefs.SetInt("difficultyhealth", 5);
+        }
     }
 
     void Update()
@@ -31,7 +35,8 @@ public class MenuButtons : MonoBehaviour
             {
                 Time.timeScale = 0;
                 //make pause menu visible
-                GetComponent<Canvas>().enabled = true;
+                //  GetComponent<Canvas>().enabled = true;
+                Menu1.SetActive(true);
             }
             else if (Time.timeScale == 0)
             {
@@ -72,6 +77,11 @@ public class MenuButtons : MonoBehaviour
         Menu1.SetActive(true);
     
     }
+    public void BacktoMenu()
+    {
+        Menu2.SetActive(false);
+        Menu1.SetActive(true);
+    }
     public void SwitchLevel()
     {
         SceneManager.LoadScene(Level);
@@ -84,7 +94,8 @@ public class MenuButtons : MonoBehaviour
 
     public void Resume()
     {
-        GetComponent<Canvas>().enabled = false;
+        //GetComponent<Canvas>().enabled = false;
+        Menu1.SetActive(false);
         Time.timeScale = 1;
     }
 
