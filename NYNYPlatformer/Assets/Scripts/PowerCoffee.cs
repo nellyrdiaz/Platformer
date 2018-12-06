@@ -25,7 +25,7 @@ public class PowerCoffee : MonoBehaviour {
             if (timer <= 0)
             {
                 Player.GetComponent<PlatformerMovement>().moveSpeed = 4;
-                Player.GetComponent<PlatformerMovement>().jumpSpeed = 2;
+                Player.GetComponent<PlatformerMovement>().jumpSpeed = 7;
                 timerStart = false;
                 timer = 20;
                
@@ -47,7 +47,7 @@ public class PowerCoffee : MonoBehaviour {
             timerStart = true;
             Player.GetComponent<PlatformerMovement>().moveSpeed = 5;
             Debug.Log("Hi");
-            Player.GetComponent<PlatformerMovement>().jumpSpeed = 3;
+            Player.GetComponent<PlatformerMovement>().jumpSpeed = 8;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
            

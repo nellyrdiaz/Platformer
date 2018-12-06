@@ -27,7 +27,7 @@ public class MenuButtons : MonoBehaviour
     {
         diffhealth = PlayerPrefs.GetInt("difficultyhealth");
         // check to see if p key is pressed
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
 
             //if is pressed stop stuff from moving
