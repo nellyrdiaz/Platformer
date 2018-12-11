@@ -38,18 +38,27 @@ public class PlayerHP : MonoBehaviour
         {
 
             //  HP--;
-
+            timer = 0;
             PlayerPrefs.SetInt("Health", HP - 1);
             Destroy(collision.gameObject);
 
 
 
         }
-         else if (collision.gameObject.tag == "Enemy" && HP <= 1 && yVelocity >= 0)
+        if (collision.gameObject.tag == "Health" && HP <= 4)
+        {
+            PlayerPrefs.SetInt("Health", HP + 1);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health" && HP >= 5)
+        {
+            Destroy(collision.gameObject);
+                }
+        else if (collision.gameObject.tag == "Enemy" && HP <= 1 && yVelocity >= 0)
         {
 
             SceneManager.LoadScene(GameOver);
-          
+
         }
     }
 
