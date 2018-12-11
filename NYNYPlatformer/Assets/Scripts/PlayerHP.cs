@@ -10,6 +10,7 @@ public class PlayerHP : MonoBehaviour
     public Text HPText;
     public string GameOver;
     float timer = 0;
+    public GameObject Player;
     
     
     
@@ -34,7 +35,7 @@ public class PlayerHP : MonoBehaviour
     {
         // if more than 1 Health minus health
         float yVelocity = GetComponent<Rigidbody2D>().velocity.y;
-        if (collision.gameObject.tag == "Enemy" && HP >= 2 && timer >= 1)
+        if (collision.gameObject.tag == "Enemy" && HP >= 2 && timer >= .3)
         {
 
             //  HP--;
@@ -45,16 +46,25 @@ public class PlayerHP : MonoBehaviour
 
 
         }
-        if (collision.gameObject.tag == "Health" && HP <= 4)
+        if (collision.gameObject.tag == "Health" && HP <= 4 && Player.GetComponent<Difficulty>().diff <= 1)
         {
             PlayerPrefs.SetInt("Health", HP + 1);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "Health" && HP >= 5)
+        if (collision.gameObject.tag == "Health" && HP >= 5 && Player.GetComponent<Difficulty>().diff <= 1)
         {
             Destroy(collision.gameObject);
-                }
-        else if (collision.gameObject.tag == "Enemy" && HP <= 1 && yVelocity >= 0)
+        }
+        if (collision.gameObject.tag == "Health" && HP <= 2 && Player.GetComponent<Difficulty>().diff >= 2)
+        {
+            PlayerPrefs.SetInt("Health", HP + 1);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health" && HP >= 3 && Player.GetComponent<Difficulty>().diff >= 2)
+        {
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Enemy" && HP <= 1)
         {
 
             SceneManager.LoadScene(GameOver);
@@ -78,17 +88,28 @@ public class PlayerHP : MonoBehaviour
             
         
         }
-        if(collision.gameObject.tag == "Health" && HP <=4)
+        if(collision.gameObject.tag == "Health" && HP <=4 && Player.GetComponent<Difficulty>().diff <=1)
         {
             PlayerPrefs.SetInt("Health", HP + 1);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.tag == "Health" && HP >=5)
+        if (collision.gameObject.tag == "Health" && HP >=5 && Player.GetComponent<Difficulty>().diff <= 1)
         {
             Destroy(collision.gameObject);
         }
+         if (collision.gameObject.tag == "Health" && HP <= 2 && Player.GetComponent<Difficulty>().diff >= 2)
+        {
+            PlayerPrefs.SetInt("Health", HP + 1);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health" && HP >= 3 && Player.GetComponent<Difficulty>().diff >= 2)
+        {
+            Destroy(collision.gameObject);
+        }
+
+
         // if less than 1 Health lose screen
-       else if (collision.gameObject.tag == "Enemy" && HP <= 1 && yVelocity >= 0)
+        else if (collision.gameObject.tag == "Enemy" && HP <= 1)
         {
 
             SceneManager.LoadScene(GameOver);

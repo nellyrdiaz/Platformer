@@ -15,5 +15,9 @@ public class Cheats : MonoBehaviour {
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-	}
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("Street");
+        }
+    }
 }
