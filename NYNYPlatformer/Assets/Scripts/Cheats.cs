@@ -19,5 +19,9 @@ public class Cheats : MonoBehaviour {
         {
             SceneManager.LoadScene("Street");
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SceneManager.LoadScene("Hotel");
+        }
     }
 }
