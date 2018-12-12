@@ -13,6 +13,7 @@ public class MenuButtons : MonoBehaviour
     public GameObject Menu2;
     public GameObject Player;
     int diffhealth =5;
+    bool Pauseon = true;
      void Start()
     {
         //PlayerPrefs.SetInt("difficultyhealth", diffhealth);
@@ -27,7 +28,7 @@ public class MenuButtons : MonoBehaviour
     {
         diffhealth = PlayerPrefs.GetInt("difficultyhealth");
         // check to see if p key is pressed
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P) && Pauseon || Input.GetKeyDown(KeyCode.Escape) && Pauseon)
         {
 
             //if is pressed stop stuff from moving
@@ -52,6 +53,7 @@ public class MenuButtons : MonoBehaviour
         PlayerPrefs.SetInt("Health", diffhealth);
         Time.timeScale = 1;
         SceneManager.LoadScene(Map);
+        Pauseon = true;
     }
     public void DiffMenu()
     {
