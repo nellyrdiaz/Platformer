@@ -10730,7 +10730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 1299154554}
   timer: 120
-  Map: Lose
+  Map: LoseTime
 --- !u!114 &2071835685
 MonoBehaviour:
   m_ObjectHideFlags: 0

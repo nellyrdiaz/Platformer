@@ -9783,7 +9783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 23985628}
   timer: 120
-  Map: Lose
+  Map: LoseTime
 --- !u!61 &1083725902
 BoxCollider2D:
   m_ObjectHideFlags: 0
