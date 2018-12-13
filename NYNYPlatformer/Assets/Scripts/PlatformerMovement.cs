@@ -7,8 +7,9 @@ public class PlatformerMovement : MonoBehaviour {
 
     public float moveSpeed = 1.0f;
     public float jumpSpeed = 1.0f;
-    bool grounded = false;
+    public bool grounded = false;
     float x = 0;
+    public bool JumpBool = false;
 
     
 
@@ -22,8 +23,9 @@ public class PlatformerMovement : MonoBehaviour {
         Vector3 velocity = GetComponent<Rigidbody2D>().velocity;
         velocity.x = moveX * moveSpeed;
         GetComponent<Rigidbody2D>().velocity = velocity;
-        if(Input.GetButtonDown("Jump") && grounded)
+        if (Input.GetButtonDown("Jump") && grounded)
         {
+            JumpBool = true;
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 100 * jumpSpeed));
         }
        
@@ -34,6 +36,7 @@ public class PlatformerMovement : MonoBehaviour {
         if(collision.gameObject.layer == 8)
         {
             grounded = true;
+            JumpBool = false;
         }
     }
      void OnTriggerExit2D(Collider2D collision)
@@ -45,6 +48,7 @@ public class PlatformerMovement : MonoBehaviour {
         if (collision.gameObject.layer == 8)
         {
             grounded = true;
+            JumpBool = false;
         }
     }
 }
