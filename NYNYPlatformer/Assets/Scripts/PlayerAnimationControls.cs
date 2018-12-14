@@ -13,7 +13,7 @@ public class PlayerAnimationControls : MonoBehaviour {
 	void Update ()
     {
           //   else if (Player.GetComponent<PlatformerMovement>().JumpBool == true)
-         if (/*put.GetButtonDown("Jump") &*/GetComponent<PlatformerMovement>().grounded == false)
+         if (  GetComponent<PlatformerMovement>().grounded == false)
         {
             Debug.Log("JumpOn");
             GetComponent<Animator>().SetBool("Jump", true);
