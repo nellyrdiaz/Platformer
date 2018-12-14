@@ -13,20 +13,17 @@ public class PlayerAnimationControls : MonoBehaviour {
 	void Update ()
     {
           //   else if (Player.GetComponent<PlatformerMovement>().JumpBool == true)
-         if (Input.GetButtonDown("Jump") && GetComponent<PlatformerMovement>().grounded)
+         if (/*put.GetButtonDown("Jump") &*/GetComponent<PlatformerMovement>().grounded == false)
         {
             Debug.Log("JumpOn");
             GetComponent<Animator>().SetBool("Jump", true);
             GetComponent<Animator>().SetFloat("X", 0);
-
             GetComponent<Animator>().SetBool("Idle", false);
         }
-
         else if (Input.GetAxis("Horizontal") != 0)
         {
             float x = Input.GetAxis("Horizontal");
             GetComponent<Animator>().SetFloat("X", x);
-
             GetComponent<Animator>().SetBool("Idle", false);
             GetComponent<Animator>().SetBool("Jump", false);
         }
