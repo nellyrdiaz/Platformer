@@ -20,7 +20,7 @@ public class PowerCoffee : MonoBehaviour {
         if (timerStart)
         {
             timer -= Time.deltaTime;
-            PowerUpText.GetComponent<Text>().text = "Boost left:" + timer;
+            PowerUpText.GetComponent<Text>().text = "MovementBoost:" + timer;
             PowerUpSlider.GetComponent<Slider>().value = timer;
             if (timer <= 0)
             {
