@@ -15,7 +15,6 @@ public class PlayerAnimationControls : MonoBehaviour {
           //   else if (Player.GetComponent<PlatformerMovement>().JumpBool == true)
          if (  GetComponent<PlatformerMovement>().grounded == false)
         {
-            Debug.Log("JumpOn");
             GetComponent<Animator>().SetBool("Jump", true);
             GetComponent<Animator>().SetFloat("X", 0);
             GetComponent<Animator>().SetBool("Idle", false);
