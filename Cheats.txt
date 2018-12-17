@@ -1,6 +1,0 @@
-R-Restart Level
-T-Teleport To First Level
-Y-Teleport To Second Level
-U-Teleport To Third Level
-M-Set Timer To 5 Seconds
-N-Stop Timer
